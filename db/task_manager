@@ -1,0 +1,9 @@
+---
+tasks:
+- id: 1
+  title: Dinner
+  description: Let's have chocolate ice cream for dinner!
+- id: 2
+  title: Dessert
+  description: Then we can have fresh fruit and MORE ice cream for dessert
+total: 2
