@@ -2,7 +2,7 @@
 tasks:
 - id: 1
   title: Dinner
-  description: Let's have chocolate ice cream for dinner!
+  description: Let's have lots of  chocolate ice cream for dinner!
 - id: 2
   title: Dessert
   description: Then we can have fresh fruit and MORE ice cream for dessert
