@@ -1,6 +1,7 @@
 body {
   background-color: lightblue;
   color: red;
+  text-align :center;
 }
 
 a {
@@ -14,4 +15,17 @@ a:hover {
 
 form {
   color: purple;
+}
+
+ul{
+  width: 378px;
+  padding: 15px;
+  margin: 0px auto 0px auto;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000
+}
+
+li {
+  display: inline;
+  margin: 0px 20px;
 }
