@@ -1,3 +1,17 @@
 body {
-  background-color: salmon;
+  background-color: lightblue;
+  color: red;
+}
+
+a {
+  color: red;
+  text-decoration: none;
+}
+
+a:hover {
+  color: firebrick;
+}
+
+form {
+  color: purple;
 }
