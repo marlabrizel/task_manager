@@ -1,8 +1,14 @@
 require 'yaml/store'
+require 'sequel'
+require 'sqlite3'
 
 class TaskManager
   def self.database
-    @database ||= YAML::Store.new("db/task_manager")
+    if ENV["TASK_MANAGER_ENV"] == 'test'
+      @database ||= Sequel.sqlite("db/task_manager_test.sqlite3")
+    else
+      @database ||= Sequel.sqlite("db/task_manager.sqlite3")
+    end
   end
 
   def self.create(task)
@@ -47,17 +53,10 @@ class TaskManager
   end
 
   def self.delete_all
-    database.transaction do
-      database['tasks'] = []
-      database['total'] = 0
-    end
-  end
-
-  def self.database
-    if ENV["TASK_MANAGER_ENV"] == 'test'
-      @database ||= YAML::Store.new("db/task_manager_test")
-    else
-      @database ||= YAML::Store.new("db/task_manager")
-    end
+    database.from(:tasks).delete 
+    # database.transaction do
+    #   database['tasks'] = []
+    #   database['total'] = 0
+    # end
   end
 end
