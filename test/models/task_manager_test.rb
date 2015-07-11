@@ -10,10 +10,10 @@ class TaskManagerTest < Minitest::Test
   end
 
   def test_it_creates_a_task
-    task = TaskManager.find(1)
+    task = TaskManager.find(TaskManager.all.first.id)
     assert_equal "title 1", task.title
     assert_equal "description 1", task.description
-    assert_equal 1, task.id
+    assert_equal TaskManager.all.first.id, task.id
   end
 
   def test_it_queries_all_tasks
@@ -28,15 +28,15 @@ class TaskManagerTest < Minitest::Test
 
   def test_it_can_update_a_task
     TaskManager.update(1, { :title => "title 1 updated",
-                            :description => "description 1 updated" })
-    task = TaskManager.find(1)
-    assert_equal "title 1 updated", task.title
-    assert_equal "description 1 updated", task.description
-    assert_equal 1, task.id
+                                  :description => "description 1 updated" })
+    # task = TaskManager.find(1)
+    assert_equal "title 1 updated", TaskManager.find(1).title
+    assert_equal "description 1 updated", TaskManager.find(1).title
+    # assert_equal 1, task.id
   end
 
   def test_it_can_destroy_a_task
-    TaskManager.delete(1)
+    TaskManager.delete(TaskManager.all.last.id)
     tasks = TaskManager.all
     assert_equal 1, tasks.count
   end
